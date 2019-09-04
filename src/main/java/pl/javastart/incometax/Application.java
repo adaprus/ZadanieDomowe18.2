@@ -1,5 +1,7 @@
 package pl.javastart.incometax;
 import pl.javastart.incometax.service.IncomeTaxService;
+
+import java.math.BigDecimal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -9,7 +11,7 @@ public class Application {
 
         try (Scanner input = new Scanner(System.in)) {
             System.out.println("Podaj swój dochód:");
-            double income = input.nextDouble();
+            BigDecimal income = BigDecimal.valueOf(input.nextDouble());
             input.nextLine();
             System.out.println("Należny podatek wynosi: " + service.countIncomeTax(income));
         } catch (InputMismatchException e) {
